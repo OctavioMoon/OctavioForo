@@ -18,12 +18,12 @@ public class UsuarioController {
 	@Autowired
 	ServicioUsuario servicioUsuario;
 		
-	@GetMapping(path = {"/usuario/validar", "/"})
+	@GetMapping(path = {"usuario/validar", "/"})
 	public String validar() {
 		return "usuario/validar";
 	}
 	
-	@PostMapping("/usuario/validar")
+	@PostMapping("usuario/validar")
 	public String agregar(@RequestParam("username") String correoe, 
 			@RequestParam("password") String clave,
 			Model modelo) {
@@ -31,13 +31,13 @@ public class UsuarioController {
 		
 	}
 	
-	@GetMapping("/usuario/agregar")
+	@GetMapping("usuario/agregar")
 	public String agregar(Model model) {
 		model.addAttribute("usuario", new Usuario());
 		return "usuario/agregar";
 	}
 	
-	@PostMapping("/usuario/agregar")
+	@PostMapping("usuario/agregar")
 	public String agregar(Model modelo, @ModelAttribute Usuario user, @RequestParam("clave") String clave, HttpSession sesion) {
 		boolean res = servicioUsuario.agregar(user, clave, sesion);
 		if(res) {
