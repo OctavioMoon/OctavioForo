@@ -37,7 +37,7 @@ public class UsuarioController {
 		return "usuario/agregar";
 	}
 	
-	@PostMapping("usuario/agregar")
+	@PostMapping("/usuario/agregar")
 	public String agregar(Model modelo, @ModelAttribute Usuario user, @RequestParam("clave") String clave, HttpSession sesion) {
 		boolean res = servicioUsuario.agregar(user, clave, sesion);
 		if(res) {
