@@ -18,7 +18,7 @@
 			<h1 class="display-4">Temas del Foro</h1>
 			<p th:text="*{mensaje}" class="lead"></p>
 			<hr class="my-4">
-			<div th:replace="/fragmentos :: navbar"></div>
+			<div th:replace="fragmentos :: navbar"></div>
 			<p class="text-danger"></p>
 				<div th:if="*{error != null}" class="alert alert-warning alert-dismissible fade show" role="alert">
 					<button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -29,7 +29,7 @@
 					<div class="col-10">
 							<div th:if"*{temas != null}">
 								<div th:each="tema : ${temas}" class="card">
-									<h3><a th:href="'/temas/detalles/' + ${tema.id}" th:text="${tema.titulo}"></a></h3>
+									<h3><a th:href="'temas/detalles/' + ${tema.id}" th:text="${tema.titulo}"></a></h3>
 									<h6 th:text="${tema.descripcion}"></h6>
 									<label th:text="'Creado por: '+${tema.usuario.nombre}"></label>
 								</div>
@@ -41,7 +41,7 @@
 			<div class="row">
 					<div class="col-3"></div>
 					<div class="col-6">
-						<form action="#" th:action="@{/temas/agregar}" th:object="${tema}"
+						<form action="#" th:action="@{temas/agregar}" th:object="${tema}"
 							method="post">
 							<fieldset>
 							<legend>Agregue un nuevo tema</legend>
